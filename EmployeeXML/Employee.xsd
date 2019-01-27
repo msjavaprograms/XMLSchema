@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.Employee.org/Employee" xmlns:emp="http://www.Employee.org/Employee"
+	xmlns:pay="http://www.example.org/EmployeePaymentTypes"
+	elementFormDefault="qualified">
+
+	<!-- XML processor includes this below XSD -->
+	<!-- We can include the differrent schema which that schema has same namespace (targetNameSpae) -->
+	
+	<xs:include schemaLocation="EmployeeTypes.xsd"></xs:include>
+	
+	<!-- XML processor includes this below XSD -->
+	<!-- We can include the differrent schema which that schema in different namespace (targetNameSpae) -->
+	<!-- if the schema in not same namespace (targetNameSpae) we cannot use include we must use import -->	
+	
+	<xs:import namespace="http://www.example.org/EmployeePaymentTypes" schemaLocation="EmployeePaymentTypes.xsd"/>
+	
+	<!-- Root Element -->
+	<xs:element name="Employee" type="emp:Employee" />
+
+	<!-- Sequence - Tells to XML Parser that all elements in this complextype 
+		should appear in the same order in XML file which import this schema -->
+	<xs:complexType name="Employee">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" />
+			<xs:element name="age" type="xs:int" />
+			<xs:element name="gender" type="xs:string" />
+			<xs:element name="dob" type="xs:date" />
+			<xs:element name="email" type="emp:string15Char"
+				maxOccurs="unbounded" />
+			<xs:element name="PayemntType" type="pay:PaymentType" />
+		</xs:sequence>
+
+	</xs:complexType>
+	
+</xs:schema>

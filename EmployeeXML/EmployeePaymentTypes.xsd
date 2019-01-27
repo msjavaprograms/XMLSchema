@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/EmployeePaymentTypes"
+	xmlns:pay="http://www.example.org/EmployeePaymentTypes"
+	elementFormDefault="qualified">
+
+	<xs:complexType name="PaymentType">
+		<xs:choice>
+			<xs:element name="cash" type="xs:int" />
+			<xs:element name="BankAccount" type="pay:BankAccountDetails" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="BankAccountDetails">
+		<xs:all>
+			<xs:element name="AccountNumber" type="xs:string" />
+			<xs:element name="BankName" type="xs:string" />
+			<xs:element name="IFSCCode" type="xs:string" />
+		</xs:all>
+	</xs:complexType>
+
+</xs:schema>

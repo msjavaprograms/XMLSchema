@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emp:Employee xmlns:emp="http://www.Employee.org/Employee"
+	xmlns:pay="http://www.example.org/EmployeePaymentTypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.Employee.org/Employee Employee.xsd ">
+	<emp:name>Agnisha</emp:name>
+	<emp:age>12</emp:age>
+	<emp:gender>M</emp:gender>
+	<emp:dob>2001-01-01</emp:dob>
+	<emp:email>ashw@gmail.com</emp:email>
+	<emp:PayemntType>
+		<!-- <pay:cash>0</pay:cash> -->
+		<pay:BankAccount>
+			<pay:AccountNumber>123456</pay:AccountNumber>
+			<pay:BankName>IDBI</pay:BankName>
+			<pay:IFSCCode>IDBI0098989</pay:IFSCCode>
+		</pay:BankAccount>
+	</emp:PayemntType>
+</emp:Employee>
